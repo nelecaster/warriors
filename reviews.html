@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=redact&callback=initMap"
+        async defer></script>
+
+</head>
+
+<body>
+
+    <script type="text/javascript" src="nicEdit-latest.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        bkLib.onDomLoaded(function () {
+            new nicEditor({ fullPanel: true }).panelInstance('textarea');
+        });
+    </script>
+
+
+<div class="container">
+        <div class="row">
+            <div class="col m12">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text center-align">
+                        <span class="card-title">
+                            <h1 id="reviewHeader">Brewery Name Here</h1>
+                        </span>
+                    </div>
+                    <div class="card-action">
+                        
+                        <div id="map" >
+                            <!-- <img src="assets/mapScreenShot.png"> -->
+                            <p class="yellow-text lighten-5">brewery info: <span id="type">brewery type, </span><span id="address">address, </span><a href="#" id="link">url</a></p> 
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="reviews.js"></script>
+    <h1>header</h1>
+    <div id="address"> </div>
+    <div id="map-good"> </div>
+    <div id="comments"> </div>
+    <div width="300px">
+        <button id="post">Post Comment</button>
+    </div>
+    <textarea rows="5" cols="170" id="textarea" required>
+    </textarea>
+
+</body>
+
+</html>
