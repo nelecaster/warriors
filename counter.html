@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,12 +23,12 @@
         var postCount = []; // this looks like an array but actually has a string in it
         var numtest = 0;
         var config = {
-            apiKey: "redact",
-            authDomain: "test-ed6f8.firebaseapp.com",
-            databaseURL: "https://test-ed6f8.firebaseio.com",
-            projectId: "test-ed6f8",
-            storageBucket: "test-ed6f8.appspot.com",
-            messagingSenderId: "609445629844"
+            apiKey: "AIzaSyCwrXeUja2B-GrrG5yC-M2yY5dLS22gb0k",
+            authDomain: "beer-review-9b476.firebaseapp.com",
+            databaseURL: "https://beer-review-9b476.firebaseio.com",
+            projectId: "beer-review-9b476",
+            storageBucket: "",
+            messagingSenderId: "1081198122133"
         };
         firebase.initializeApp(config);
 
@@ -63,8 +64,8 @@
                 numPosts = postCount[postIDX];
                 // pubs with no posts returns undefined
                 // because the associative array was enver defined for them
-                if (typeof(numPosts) == "undefined")
-                numPosts = 0;
+                if (typeof (numPosts) == "undefined")
+                    numPosts = 0;
                 $("#postsfor" + postIDX).html(numPosts);
             });
 
