@@ -1,6 +1,6 @@
-/* .new_user {
+.new_user {
     padding-left: 16%;
-} */
+}
 
 html, body {
     height: 100%;
@@ -8,10 +8,10 @@ html, body {
     padding: 0;
     background-color: lightblue;
   }
-/* #map {
+ #map {
     height: 30%;
     background-color: lightgreen;
-  } */
+  } 
 .card {
     width: 1000px;
 }
@@ -24,7 +24,10 @@ html, body {
     background-color: lightgreen;
 }
 
+.label {
+    color: orange;
+}
 
-  .nicEdit-main {
-      background-color: white;
-  }
+.home {
+    padding-left: 70%;
+}
