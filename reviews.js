@@ -37,12 +37,14 @@ After class:
 
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyCwrXeUja2B-GrrG5yC-M2yY5dLS22gb0k",
-    authDomain: "beer-review-9b476.firebaseapp.com",
-    databaseURL: "https://beer-review-9b476.firebaseio.com",
-    projectId: "beer-review-9b476",
-    storageBucket: "",
-    messagingSenderId: "1081198122133"
+
+   apiKey: "AIzaSyAzGg64gHxEiXXBu09jlQEl97bg-kRhZ_I",
+   authDomain: "beer-review-2.firebaseapp.com",
+   databaseURL: "https://beer-review-2.firebaseio.com",
+   projectId: "beer-review-2",
+   storageBucket: "beer-review-2.appspot.com",
+   messagingSenderId: "756701042097"
+
 };
 firebase.initializeApp(config);
 
@@ -51,7 +53,7 @@ firebase.initializeApp(config);
 database = firebase.database();
 
 
-if (debug) {
+if (false ) {
     localStorage.setItem("userName", "tom");
     localStorage.setItem("pubID", "3846");  // use 3846 or 3785
 }
@@ -208,4 +210,3 @@ database.ref().on("child_added", function (childSnapshot) {
     }
 
 });
-
