@@ -37,12 +37,12 @@ After class:
 
 // Initialize Firebase
 var config = {
-    apiKey: "redact",
-    authDomain: "test-ed6f8.firebaseapp.com",
-    databaseURL: "https://test-ed6f8.firebaseio.com",
-    projectId: "test-ed6f8",
-    storageBucket: "test-ed6f8.appspot.com",
-    messagingSenderId: "609445629844"
+    apiKey: "AIzaSyCwrXeUja2B-GrrG5yC-M2yY5dLS22gb0k",
+    authDomain: "beer-review-9b476.firebaseapp.com",
+    databaseURL: "https://beer-review-9b476.firebaseio.com",
+    projectId: "beer-review-9b476",
+    storageBucket: "",
+    messagingSenderId: "1081198122133"
 };
 firebase.initializeApp(config);
 
