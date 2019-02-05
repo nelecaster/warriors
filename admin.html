@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -11,7 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script src="tableLogic.js"></script>
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+   
     <title>Admin</title>
 </head>
 <body>
@@ -47,7 +49,8 @@
               </div>
             </div>
 
-            <div class="container">
+
+            <div class="container" id="tableContainer">
 
                 <table class="table" id="breweryTable">
 
@@ -57,12 +60,15 @@
                         <th>Address</th>
                         <th>Phone Number</th>
 
+                        <th>Number of Reviews</th>
+                        <th>Review Page</th>
+
                     </tr>
                     <tbody>
 
 
 
-                        
+
                     </tbody>
 
                 </table>
