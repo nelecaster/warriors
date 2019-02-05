@@ -1,4 +1,30 @@
-.new_user {
+/* .new_user {
     padding-left: 16%;
+} */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: lightblue;
+  }
+/* #map {
+    height: 30%;
+    background-color: lightgreen;
+  } */
+.card {
+    width: 1000px;
 }
 
+  #map {
+    height: 438px;
+    width: 70%;
+  margin-left: 10%;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: lightgreen;
+}
+
+
+  .nicEdit-main {
+      background-color: white;
+  }
