@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="tableLogic.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+
+  <title>Admin</title>
 </head>
+
 <body>
-    
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col m12">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text center-align">
+            <span class="card-title">
+              <h1 class="animated rotateIn delay-1s">Minnesota Brewery Reviews</h1>
+            </span>
+
+          </div>
+          <div class="card-action">
+            <div class="input-field inline">
+              <input id="user_name_inline" type="text" class="validate">
+
+              <label for="user_name_inline">User Name</label>
+            </div>
+            <div class="input-field inline">
+              <input id="password_inline" type="password" class="validate">
+              <label for="password_inline">Password</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Log In
+            </button>
+            <a class="new_user" href="new_user.html">New User</a>
+
+            <a class="logout" href="#">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="tableContainer">
+
+    <table class="table" id="breweryTable">
+
+      <tr>
+        <th>Brewery Name</th>
+        <th>Brewery Type</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+        <th>Number of Reviews</th>
+        <th>Review Page</th>
+
+      </tr>
+      <tbody>
+      </tbody>
+
+    </table>
+  </div>
+
 </body>
+
 </html>
