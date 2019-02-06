@@ -1,3 +1,4 @@
+
 var postCount = []; // this looks like an array but actually has a string in it
 var numtest = 0;
 var html_s = "";
@@ -8,7 +9,7 @@ var config = {
   databaseURL: "https://beer-review-2.firebaseio.com",
   projectId: "beer-review-2",
   storageBucket: "beer-review-2.appspot.com",
-  messagingSenderId: "756701042097"
+  messagingSenderId: "756701042097" 
 };
 
 firebase.initializeApp(config);
@@ -22,15 +23,13 @@ setTimeout(function () {
   // I spent over a half hour trying to get promise to work and there was too much other
   // stuff to do....
   getPublist();
-}, 2000); //works with 1400 or less  at home, see how low I can get it at class
+}, 900); //works with 1400 or less  at home, see how low I can get it at class
 
 function getCounts() {
-  console.log("reachgetcounts");
-  database.ref().on("child_added", function (childSnapshot) {
-  thisPub = childSnapshot.val().pubID;
-    console.log("ingettcounts" + postCount[thisPub] + thisPub);
-    if (typeof( postCount[thisPub]) == "undefined") 
-        postCount[thisPub] = 0;
+  database.ref("/postsnew").on("child_added", function (childSnapshot) {
+    thisPub = childSnapshot.val().pubID;
+    if (typeof (postCount[thisPub]) == "undefined")
+      postCount[thisPub] = 0;
     postCount[thisPub] = postCount[thisPub] + 1;
   });
 }
@@ -38,7 +37,6 @@ function getCounts() {
 $(document).ready(function () {
   $(document).on("click", ".fa-flask", function () {
     userName = $("#user_name_inline").val().trim();
-    console.log(userName);
     localStorage.setItem("userName", userName);
     console.log("fa-flask click");
     $(this).attr('id')
@@ -64,12 +62,10 @@ function getPublist() {
     for (var i = 0; i < results.length; i++) {
       var pubID = results[i].id;
 
-      console.log("pubid is " + pubID);
 
       var breweryType = results[i].brewery_type;
       var breweryName = results[i].name;
       var breweryPhone = formatPhoneNumber(results[i].phone);
-      //  var breweryPhone = formatPhoneNumber(results[i].phone);
 
       var city = results[i].city;
 
@@ -86,7 +82,6 @@ function getPublist() {
 
       var address =
         results[i].street + ", " + results[i].city + " " + results[i].state;
-      console.log("Address is " + address);
       if (breweryType === "planning") {
         continue;
       }
@@ -104,20 +99,14 @@ function getPublist() {
         $("<td>").text(breweryPhone),
         //$("<td>").html("0 posts"),
         //$('<td id="postsfor' + pubID + '">').text("-")
-        $("<td>").text(postCount[pubID])
+        $("<td>").text(postCount[pubID]),
+        $('<td id="' + pubID + '">').append(GoButton)
       );
 
-      //newRow.append("<br>");
-      //var reviews = newRow.append($("<td>").append("" + pubID + " reviews"));
-
-      newRow.append($('<td id="' + pubID + '">').append(GoButton));
-
-      //html_s = '$(<td id="' + pubID + '">).append(GoButton)'      );
-      //newRow.append  (     '$(<td id="' + pubID + '">).append(GoButton)'      );
-
-      //reviews.attr("id", "postsfor" + pubID);
+      console.log("eye=" + i);
       $("#breweryTable").attr("class", "responsive-table highlight");
-      $("#breweryTable > tbody").append(newRow);
+      //$("#breweryTable > tbody").append(newRow);
+      $("#pubTable").append(newRow);
 
     }
   });

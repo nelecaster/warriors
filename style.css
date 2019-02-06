@@ -19,7 +19,7 @@ html, body {
   #map {
     height: 438px;
     width: 70%;
-  margin-left: 10%;
+    margin-left: 10%;
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: lightgreen;
 }
@@ -30,4 +30,8 @@ html, body {
 
 .home {
     padding-left: 70%;
+}
+
+.nicEdit-main {
+    background-color: white;
 }
