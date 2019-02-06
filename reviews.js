@@ -33,17 +33,15 @@ After class:
 
 */
 
-
-
 // Initialize Firebase
 var config = {
-
    apiKey: "AIzaSyAzGg64gHxEiXXBu09jlQEl97bg-kRhZ_I",
    authDomain: "beer-review-2.firebaseapp.com",
    databaseURL: "https://beer-review-2.firebaseio.com",
    projectId: "beer-review-2",
    storageBucket: "beer-review-2.appspot.com",
-   messagingSenderId: "756701042097"
+   messagingSenderId: "756701042097" 
+
 
 };
 firebase.initializeApp(config);
@@ -53,55 +51,68 @@ firebase.initializeApp(config);
 database = firebase.database();
 
 
-if (false ) {
+if (false ) { // testing only
     localStorage.setItem("userName", "tom");
-    localStorage.setItem("pubID", "3846");  // use 3846 or 3785
+    localStorage.setItem("pubID", "3850");  // use 3846 or 3785 or 3850 gull dam it!
 }
 
-// alert the value to check if we got it
 userName = localStorage.getItem('userName');
 pubID = localStorage.getItem('pubID');
 
 //put this error in to warn a programmer that conditions were not made to run this
 //don't mark me for using alert, this is only to warn programmers
-if (pubID == null || userName == null)
-    alert("review.js rejected this because either pubid or username were null");
 
 $(document).ready(function () {
     $("#post").click(function () {
-        var tmpm;
+        var tempMessage;
         console.log("rutville edit is:" + useEdit)
         if (useEdit)
             nicEditors.findEditor('textarea').saveContent();
-        tmpm = $("#textarea").val();
-        if (tmpm.length == 0)
+        tempMessage = $("#textarea").val();
+        console.log("lenny=" + tempMessage.length);
+        // known bug: "blank" messages are sometimes 4 in length. work on later
+        if (tempMessage.length == 0 || tempMessage.length == 4)
             alert("you can't save an empty message");
+        else if (userName.length < 2)
+            {
+                alert("You must be logged in to post a message!");
+            }
         else {
             var tmpMessage = {
-                message: tmpm,
+                message: tempMessage,
                 pubID: pubID,
                 userName: userName,
                 createdAt: firebase.database.ServerValue.TIMESTAMP
             };
-            database.ref().push(tmpMessage)
-        }
+            database.ref("/posts").push(tmpMessage)
         $("#textarea").val('');
         console.log("edit debugh:" + useEdit);
         if (useEdit)
             nicEditors.findEditor('textarea').setContent("");
+        }
 
     });
 });
 function show_addr(pubin) {
     // needs to have a prettty csz and phone function call 
+    var address1 =  pubin.street;
+    var address2 = pubin.city + ",    " +  pubin.state + " " + pubin.postal_code;
     html_s = `<h2>${pubin.name}</h2>
-              <h2>${pubin.street}<h2>
-              <h2>${pubin.city}<h2>
-              <h2>${pubin.state}<h2>
-              <h2>${pubin.postal_code}<h2>
-              <h2>${pubin.phone}<h2>`;
+              <h4>${address1}</h4>
+              <h4>${address2}</h4>
+              <h4>${formatPhoneNumber(pubin.phone)}</h4>`;
 
-    $("#address").append(html_s);
+    /*html_s = `<h2>${pubin.name}</h2>
+              <h4>${pubin.street}</h4>
+              <h4>${pubin.city}</h4>
+              <h4>${pubin.state}</h4>
+              <h4>${pubin.postal_code}</h4>
+              <h4>${formatPhoneNumber(pubin.phone)}</h4>`; */
+
+
+
+
+    $("#reviewHeader").append(html_s);
 }
 function get_latlong(pubin) {
 }
@@ -193,7 +204,7 @@ $.ajax({
 console.log("end of ajax");
 
 //show posts
-database.ref().on("child_added", function (childSnapshot) {
+database.ref("/posts").on("child_added", function (childSnapshot) {
     postedName = childSnapshot.val().userName;
     postedMessage = childSnapshot.val().message;
     postedPubID = childSnapshot.val().pubID;
@@ -210,3 +221,14 @@ database.ref().on("child_added", function (childSnapshot) {
     }
 
 });
+
+//i got formatted phone function rom slashdot!
+function formatPhoneNumber(phoneNumberString) {
+    var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+    var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/)
+    if (match) {
+      var intlCode = (match[1] ? '+1 ' : '')
+      return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('')
+    }
+    return phoneNumberString // fail caise
+  }
