@@ -13,8 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=redact&callback=initMap"
-        async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=redact&callback=initMap" async defer></script>
 
 </head>
 
@@ -22,16 +21,25 @@
 
     <script type="text/javascript" src="nicEdit-latest.js"></script>
     <script type="text/javascript">
-        //<![CDATA[
         bkLib.onDomLoaded(function () {
             new nicEditor({ fullPanel: true }).panelInstance('textarea');
         });
     </script>
 
+    <nav class="blue-grey darken-1">
+        <div class="nav-wrapper container ">
+            <a href="index.html" class="brand-logo">Minnesota Brewery Reviews</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><span class="nav-name"></span></li>
+                
+            </ul>
+        </div>
+    </nav>
 
-<div class="container">
+
+    <div class="container">
         <div class="row">
-            <div class="col m12">
+            <div class="col 16 m12">
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text center-align">
                         <span class="card-title">
@@ -39,31 +47,42 @@
                         </span>
                     </div>
                     <div class="card-action">
-                        
-                        <div id="map" >
+
+                        <div id="map">
                             <!-- <img src="assets/mapScreenShot.png"> -->
-                            <p class="yellow-text lighten-5">brewery info: <span id="type">brewery type, </span><span id="address">address, </span><a href="#" id="link">url</a></p> 
+                            <p class="yellow-text lighten-5">brewery info: <span id="type">brewery type, </span><span
+                                    id="address">address, </span><a href="#" id="link">url</a></p>
                         </div>
-                        
+
                     </div>
                 </div>
+                <div id="address"> </div>
+                <div id="map-good"> </div>
+                <div id="comments"> </div>
+                <div>
+                    <button class="waves-effect waves-light btn" id="post">Post Comment</button>
+                </div>
+                <textarea rows="5" cols="170" id="textarea" required>
+                </textarea>
             </div>
         </div>
     </div>
 
+    <footer class="page-footer blue-grey darken-1">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Copyright
+                <span class="grey-text text-lighten-4 right">Tom, Ben, Jaesper, Dom</span>
+            </div>
+        </div>
+    </footer>
 
 
 
 
     <script src="reviews.js"></script>
-    <div id="address"> </div>
-    <div id="map-good"> </div>
-    <div id="comments"> </div>
-    <div width="300px">
-        <button class="waves-effect waves-light btn" id="post">Post Comment</button>
-    </div>
-    <textarea rows="5" cols="170" id="textarea" required>
-    </textarea>
+    <script src="mockLogin2.js"></script>
+
 
 </body>
 

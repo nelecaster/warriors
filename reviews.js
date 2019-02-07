@@ -35,12 +35,12 @@ After class:
 
 // Initialize Firebase
 var config = {
-   apiKey: "AIzaSyAzGg64gHxEiXXBu09jlQEl97bg-kRhZ_I",
-   authDomain: "beer-review-2.firebaseapp.com",
-   databaseURL: "https://beer-review-2.firebaseio.com",
-   projectId: "beer-review-2",
-   storageBucket: "beer-review-2.appspot.com",
-   messagingSenderId: "756701042097" 
+    apiKey: "AIzaSyAzGg64gHxEiXXBu09jlQEl97bg-kRhZ_I",
+    authDomain: "beer-review-2.firebaseapp.com",
+    databaseURL: "https://beer-review-2.firebaseio.com",
+    projectId: "beer-review-2",
+    storageBucket: "beer-review-2.appspot.com",
+    messagingSenderId: "756701042097"
 
 
 };
@@ -51,7 +51,7 @@ firebase.initializeApp(config);
 database = firebase.database();
 
 
-if (false ) { // testing only
+if (false) { // testing only
     localStorage.setItem("userName", "tom");
     localStorage.setItem("pubID", "3850");  // use 3846 or 3785 or 3850 gull dam it!
 }
@@ -73,10 +73,9 @@ $(document).ready(function () {
         // known bug: "blank" messages are sometimes 4 in length. work on later
         if (tempMessage.length == 0 || tempMessage.length == 4)
             alert("you can't save an empty message");
-        else if (userName.length < 2)
-            {
-                alert("You must be logged in to post a message!");
-            }
+        else if (userName.length < 2) {
+            alert("You must be logged in to post a message!");
+        }
         else {
             var tmpMessage = {
                 message: tempMessage,
@@ -85,18 +84,18 @@ $(document).ready(function () {
                 createdAt: firebase.database.ServerValue.TIMESTAMP
             };
             database.ref("/posts").push(tmpMessage)
-        $("#textarea").val('');
-        console.log("edit debugh:" + useEdit);
-        if (useEdit)
-            nicEditors.findEditor('textarea').setContent("");
+            $("#textarea").val('');
+            console.log("edit debugh:" + useEdit);
+            if (useEdit)
+                nicEditors.findEditor('textarea').setContent("");
         }
 
     });
 });
 function show_addr(pubin) {
     // needs to have a prettty csz and phone function call 
-    var address1 =  pubin.street;
-    var address2 = pubin.city + ",    " +  pubin.state + " " + pubin.postal_code;
+    var address1 = pubin.street;
+    var address2 = pubin.city + ",    " + pubin.state + " " + pubin.postal_code;
     html_s = `<h2>${pubin.name}</h2>
               <h4>${address1}</h4>
               <h4>${address2}</h4>
@@ -227,8 +226,8 @@ function formatPhoneNumber(phoneNumberString) {
     var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
     var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/)
     if (match) {
-      var intlCode = (match[1] ? '+1 ' : '')
-      return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('')
+        var intlCode = (match[1] ? '+1 ' : '')
+        return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('')
     }
     return phoneNumberString // fail caise
-  }
+}
