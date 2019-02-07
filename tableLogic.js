@@ -37,9 +37,9 @@ function getCounts() {
 
 $(document).ready(function () {
   $(document).on("click", ".fa-flask", function () {
-    userName = $("#user_name_inline").val().trim();
-    console.log(userName);
-    localStorage.setItem("userName", userName);
+    // userName = $("#user_name_inline").val().trim();
+    // console.log(userName);
+    // localStorage.setItem("userName", userName);
     console.log("fa-flask click");
     $(this).attr('id')
     // set pub id so that reviews knows which pub we clicked
